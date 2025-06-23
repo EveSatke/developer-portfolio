@@ -1,35 +1,32 @@
 @import './base.css';
+@import "tailwindcss";
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
-}
+@theme {
+  /* Main Theme - Vibrant Purple/Blue Gradient */
+  --color-primary: oklch(0.55 0.27 296);    /* Grape - Rich purple */
+  --color-light-purple: oklch(0.70 0.25 296);  /* Grape 700 - Bright purple */
+  --color-dark-purple: oklch(0.45 0.27 296);   /* Chrysler blue - Deep purple */
+  --color-accent: oklch(0.75 0.20 296);     /* Grape 800 - Light purple */
+  --color-deep: oklch(0.40 0.27 296);       /* Zaffre - Deepest purple */
+  --color-neon: oklch(0.55 0.25 260);       /* Neon blue - Bright accent */
+  --color-sky: oklch(0.65 0.20 240);        /* Chefchaouen Blue - Light accent */
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
-}
+  /* Text Colors */
+  --color-text-primary: var(--color-deep);
+  --color-text-secondary: var(--color-dark-purple);
+  --color-text-light: var(--color-light-purple);
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
+  /* Background Colors */
+  --color-bg-primary: oklch(1 0 0);         /* White */
+  --color-bg-secondary: var(--color-accent);
+  --color-bg-gradient: linear-gradient(45deg, var(--color-primary), var(--color-neon));
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
+  /* Effects */
+  --shadow-sm: 0 2px 4px oklch(0.55 0.27 296 / 0.2);
+  --shadow-md: 0 8px 20px oklch(0.55 0.27 296 / 0.3);
+  --shadow-lg: 0 12px 25px oklch(0.55 0.27 296 / 0.4);
+  --shadow-lg-green: 0 12px 25px oklch(0.55 0.27 150 / 0.35); /* Green shadow */
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+  /* Avatar Colors */
+  --color-avatar-purple: oklch(0.90 0.15 296); /* Very light purple for avatars */
 }
