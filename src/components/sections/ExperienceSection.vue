@@ -19,12 +19,10 @@ type Experience = {
 const experiences: Experience[] = [
   {
     date: '2019 — 2023',
-    title: 'UI UX Designer',
+    title: 'UI/UX Designer',
     company: 'Danske Bank',
     companyUrl: 'https://danskebank.com/',
-    description: `-Create and lead design in various projects intended for bank employees in Mobile First Technology team
--Create prototypes and wireframes for multiple platforms 
--Conduct UX Research (interviews, focus groups, usability testing, analytics)`,
+    description: `Led design initiatives for bank employee applications within the Mobile First Technology team, developing prototypes and wireframes across multiple platforms. Conducted comprehensive UX research including user interviews, focus groups, usability testing, and analytics analysis to inform design decisions. Collaborated closely with developers to communicate design rationale, review implementations, and ensure design quality throughout the development process.`,
     skills: [
       { name: 'Figma / Prototyping', category: 'design' },
       { name: 'UX Research', category: 'design' },
@@ -37,7 +35,7 @@ const experiences: Experience[] = [
     title: 'IT Software Engineer, student',
     company: 'Danske Bank',
     companyUrl: 'https://danskebank.com/',
-    description: `We were 4 students who passed the selection in the job interviews. Half of the year we were learning and doing various projects. I have tried both, front-end and back-end coding. After student period I got hired as UX Software Engineer. I was 50% coding, 50% designing. Later, I have decided to do only design.`,
+    description: `Selected as one of four students through competitive job interviews for a comprehensive learning program. Over six months, I immersed myself in both front-end and back-end development, mastering Angular, project architecture, and full-stack development. Working closely with mid and senior developers, I participated in hackathons, built complete applications from ideation to deployment, and learned agile methodologies through sprint-based workflows. I gained deep insights into enterprise architecture and banking system capabilities while collaborating in cross-functional teams. After the student period, I was hired as a UX Software Engineer, balancing 50% coding and 50% design work before transitioning to focus exclusively on design.`,
     skills: [
       { name: 'JavaScript', category: 'frontend' },
       { name: 'TypeScript', category: 'frontend' },
@@ -59,7 +57,6 @@ const experiences: Experience[] = [
       { name: 'Brandbook', category: 'design' },
     ],
   },
-  // Add more experiences as needed
 ]
 </script>
 
