@@ -23,7 +23,6 @@ const props = defineProps<Props>()
   <div
     class="relative bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden transition-all duration-200 hover:bg-indigo-50 dark:hover:bg-indigo-900 hover:border-indigo-400 hover:scale-[1.01]"
   >
-    <!-- Project Image -->
     <div
       class="w-full aspect-[4/3] bg-gray-100 dark:bg-slate-700 flex items-center justify-center overflow-hidden rounded-t-xl"
     >
@@ -47,7 +46,6 @@ const props = defineProps<Props>()
         {{ props.description }}
       </p>
 
-      <!-- Action Buttons Section -->
       <div class="flex items-center gap-2 mb-4">
         <a
           v-if="props.projectUrl"
@@ -93,7 +91,6 @@ const props = defineProps<Props>()
         </a>
       </div>
 
-      <!-- Technologies Used Section -->
       <div v-if="props.skills.length" class="mb-2">
         <div class="font-semibold text-xs text-slate-500 dark:text-slate-400 mb-1">
           Technologies Used

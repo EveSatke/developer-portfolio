@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import gsap from 'gsap'
-
 interface Props {
   name: string
   icon?: string
@@ -12,28 +9,6 @@ const props = withDefaults(defineProps<Props>(), {
   category: 'other',
 })
 
-const badgeRef = ref<HTMLElement | null>(null)
-
-// Animation on hover
-const handleHover = (isHovering: boolean) => {
-  if (!badgeRef.value) return
-
-  if (isHovering) {
-    gsap.to(badgeRef.value, {
-      scale: 1.05,
-      duration: 0.3,
-      ease: 'power2.out',
-    })
-  } else {
-    gsap.to(badgeRef.value, {
-      scale: 1,
-      duration: 0.3,
-      ease: 'power2.out',
-    })
-  }
-}
-
-// Get category color
 const getCategoryColor = (category: 'frontend' | 'backend' | 'tools' | 'design' | 'other') => {
   const colors = {
     frontend: 'bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-300',
@@ -48,8 +23,7 @@ const getCategoryColor = (category: 'frontend' | 'backend' | 'tools' | 'design' 
 
 <template>
   <div
-    ref="badgeRef"
-    class="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium transition-colors duration-300 cursor-default"
+    class="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium transition-transform duration-200 hover:scale-105 cursor-default"
     :class="getCategoryColor(category)"
   >
     <span v-if="icon" class="mr-2">{{ icon }}</span>

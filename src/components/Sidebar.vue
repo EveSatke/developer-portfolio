@@ -1,8 +1,10 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
 const profileRef = ref<HTMLElement | null>(null)
 const activeSection = ref('about')
+const emailCopied = ref(false)
+const cvDownloaded = ref(false)
 
 const navigationItems = [
   { name: 'About', href: '#about', id: 'about' },
@@ -28,6 +30,40 @@ const socialLinks = [
   },
 ]
 
+// Copy email function
+const copyEmail = async () => {
+  try {
+    await navigator.clipboard.writeText('evelina.satkauske@gmail.com')
+    emailCopied.value = true
+    setTimeout(() => {
+      emailCopied.value = false
+    }, 2000)
+  } catch (err) {
+    console.error('Failed to copy email:', err)
+  }
+}
+
+// Download CV function
+const downloadCV = () => {
+  // Replace with your actual CV file path
+  const link = document.createElement('a')
+  link.href = '/cv-evelina-satkauske.pdf' // Update this path
+  link.download = 'Evelina_Satkauske_CV.pdf'
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChild(link)
+
+  cvDownloaded.value = true
+  setTimeout(() => {
+    cvDownloaded.value = false
+  }, 2000)
+}
+
+// Listen for section changes from scroll
+const handleSectionChange = (event: CustomEvent) => {
+  activeSection.value = event.detail.id
+}
+
 // Add smooth scroll handler
 const handleNavClick = (id: string, event: Event) => {
   event.preventDefault()
@@ -45,67 +81,129 @@ const handleNavClick = (id: string, event: Event) => {
     })
   }
 }
+
+onMounted(() => {
+  window.addEventListener('sectionChange', handleSectionChange as EventListener)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('sectionChange', handleSectionChange as EventListener)
+})
 </script>
 
 <template>
-  <div class="h-full flex flex-col justify-between bg-white dark:bg-gray-900">
+  <div class="h-full flex flex-col justify-between bg-white dark:bg-slate-800">
     <!-- Main Content Container -->
-    <div>
-      <!-- Name and Title -->
-      <div class="space-y-2 mb-8">
-        <h1 class="text-2xl lg:text-5xl font-bold">Evelina Satkauskė</h1>
-        <p class="text-xl text-gray-600 dark:text-gray-400">Front End Developer | UX Designer</p>
-      </div>
+    <div class="flex flex-col h-full">
+      <!-- 1. Profile Section: Photo + Info Side by Side -->
+      <div class="mb-8">
+        <!-- Profile Photo and Info Layout -->
+        <div class="flex items-start space-x-4">
+          <!-- Profile Photo -->
+          <div ref="profileRef" class="relative group flex-shrink-0">
+            <div class="relative w-[100px] h-[100px] rounded-full overflow-hidden">
+              <img src="/profile.png" alt="Evelina Satkauskė" class="w-full h-full object-cover" />
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 mix-blend-overlay"
+              ></div>
+            </div>
+          </div>
 
-      <!-- Profile Container -->
-      <div ref="profileRef" class="relative group mb-8">
-        <!-- Profile Image Container -->
-        <div class="relative w-[100px] h-[100px] rounded-full overflow-hidden">
-          <!-- Profile Image -->
-          <img src="/profile.png" alt="Evelina Satkauskė" class="w-full h-full object-cover" />
-          <!-- Subtle gradient overlay -->
-          <div
-            class="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 mix-blend-overlay"
-          ></div>
+          <!-- Name, Position, Email - Vertical stack next to photo -->
+          <div class="flex flex-col justify-center space-y-1">
+            <h1 class="text-2xl lg:text-4xl font-bold text-slate-900 dark:text-slate-100">
+              Evelina Satkauskė
+            </h1>
+
+            <p class="text-lg text-gray-600 dark:text-slate-300">
+              Front End Developer | UX Designer
+            </p>
+
+            <button
+              @click="copyEmail"
+              class="group flex items-center space-x-2 text-gray-600 dark:text-slate-400 hover:text-gray-900 dark:hover:text-slate-100 transition-colors cursor-pointer"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
+              </svg>
+              <span class="text-sm font-medium">evelina.satkauske@gmail.com</span>
+              <span v-if="emailCopied" class="text-xs text-green-600 dark:text-green-400 ml-2">
+                Copied!
+              </span>
+            </button>
+          </div>
         </div>
       </div>
 
-      <!-- Navigation -->
-      <nav class="space-y-6 mb-8">
-        <a
-          v-for="item in navigationItems"
-          :key="item.href"
-          :href="item.href"
-          class="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors relative group flex items-center"
-          :class="{ 'text-gray-900 dark:text-white font-semibold': activeSection === item.id }"
-          @click="(e) => handleNavClick(item.id, e)"
-        >
-          <span
-            class="nav-indicator mr-4 h-[2px] transition-all motion-reduce:transition-none"
-            :class="[
-              activeSection === item.id
-                ? 'w-16 bg-gray-900 dark:bg-white'
-                : 'w-8 bg-gray-300 dark:bg-gray-600 group-hover:w-16 group-hover:bg-gray-900 dark:group-hover:bg-white',
-              'group-focus-visible:w-16 group-focus-visible:bg-gray-900 dark:group-focus-visible:bg-white',
-            ]"
-          ></span>
-          <span class="text-xs uppercase tracking-widest relative z-10">{{ item.name }}</span>
-        </a>
+      <!-- 2. Navigation Menu Items - Centered with proper padding -->
+      <nav class="flex-1 flex flex-col justify-start pl-4 py-8">
+        <div class="space-y-6">
+          <a
+            v-for="item in navigationItems"
+            :key="item.href"
+            :href="item.href"
+            class="text-gray-500 dark:text-slate-400 hover:text-gray-900 dark:hover:text-slate-100 transition-colors relative group flex items-center"
+            :class="{
+              'text-gray-900 dark:text-slate-100 font-semibold': activeSection === item.id,
+            }"
+            @click="(e) => handleNavClick(item.id, e)"
+          >
+            <span
+              class="nav-indicator mr-4 h-[2px] transition-all motion-reduce:transition-none"
+              :class="[
+                activeSection === item.id
+                  ? 'w-16 bg-gray-900 dark:bg-slate-100'
+                  : 'w-8 bg-gray-300 dark:bg-slate-500 group-hover:w-16 group-hover:bg-gray-900 dark:group-hover:bg-slate-100',
+                'group-focus-visible:w-16 group-focus-visible:bg-gray-900 dark:group-focus-visible:bg-slate-100',
+              ]"
+            ></span>
+            <span class="text-xs uppercase tracking-widest relative z-10">{{ item.name }}</span>
+          </a>
+        </div>
       </nav>
     </div>
 
-    <!-- Social Links -->
-    <div>
-      <div class="flex space-x-6">
-        <a
-          v-for="link in socialLinks"
-          :key="link.name"
-          :href="link.href"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-all duration-300"
-          v-html="link.icon"
-        ></a>
+    <!-- 3. Resume Button and Social Links - Bottom with padding -->
+    <div class="pl-4 pb-4">
+      <div class="flex items-center space-x-4">
+        <!-- Resume Button - Black -->
+        <button
+          @click="downloadCV"
+          class="inline-flex items-center px-4 py-2 bg-black dark:bg-white text-white dark:text-black rounded-lg hover:bg-gray-800 hover:cursor-pointer dark:hover:bg-gray-200 transition-all duration-300 font-medium text-sm"
+          title="Download Resume"
+        >
+          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+            />
+          </svg>
+          Resume
+          <span v-if="cvDownloaded" class="text-xs text-green-400 dark:text-green-600 ml-2">
+            ✓
+          </span>
+        </button>
+
+        <!-- Social Links -->
+        <div class="flex items-center space-x-2">
+          <a
+            v-for="link in socialLinks"
+            :key="link.name"
+            :href="link.href"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-gray-500 dark:text-slate-400 hover:text-gray-700 dark:hover:text-slate-200 transition-all duration-300 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700"
+            :title="link.name"
+            v-html="link.icon"
+          ></a>
+        </div>
       </div>
     </div>
   </div>

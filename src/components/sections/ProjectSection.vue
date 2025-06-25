@@ -20,7 +20,7 @@ const projects: Project[] = [
   {
     title: 'Habits App',
     description: 'Track your daily habits, monitor progress, and build consistent routines.',
-    imageUrl: 'public/projects/habits_app.png',
+    imageUrl: '/projects/habits_app.png',
     projectUrl: 'https://evesatke.github.io/habits-app/',
     githubUrl: 'https://github.com/evesatke/habits-app',
     skills: [
@@ -34,7 +34,7 @@ const projects: Project[] = [
     title: 'Typo',
     description:
       'A modern, web-based typing speed test application that helps users measure and improve their typing skills.',
-    imageUrl: 'public/projects/typo.png',
+    imageUrl: '/projects/typo.png',
     projectUrl: 'https://evesatke.github.io/typo/',
     githubUrl: 'https://github.com/EveSatke/typo',
     skills: [
@@ -48,7 +48,7 @@ const projects: Project[] = [
     title: 'Telia e-shop',
     description:
       'This project is part of the Women Go Tech program, specifically developed as a portfolio project for Telia company.',
-    imageUrl: 'public/projects/e-shop.png',
+    imageUrl: '/projects/e-shop.png',
     projectUrl: 'https://evesatke.github.io/telia_e-shop/',
     githubUrl: 'https://github.com/EveSatke/telia_e-shop',
     skills: [
@@ -62,7 +62,7 @@ const projects: Project[] = [
     title: 'Tic-tac-toe game',
     description:
       'Vanilla JavaScript Tic-tac-toe with modular architecture, responsive design, and game state management.',
-    imageUrl: 'public/projects/tic-tac-toe.png',
+    imageUrl: '/projects/tic-tac-toe.png',
     projectUrl: 'https://evesatke.github.io/tic-tac-toe/',
     githubUrl: 'https://github.com/EveSatke/tic-tac-toe',
     skills: [

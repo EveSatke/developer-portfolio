@@ -3,9 +3,9 @@
   <div class="space-y-5 text-gray-700 dark:text-gray-300 leading-relaxed">
     <p>
       I'm a <strong>former UX/UI designer turned web developer</strong>, currently learning
-      front-end development at <strong>Turing College</strong>. My background in finance, agency
-      work, and enterprise development gives me a unique perspective on creating user-centered
-      digital solutions.
+      front-end development at <strong>Turing College</strong>. My diverse experience across
+      finance, agency work, and enterprise development enables me to understand both business
+      requirements and user needs when creating digital solutions.
     </p>
     <p>
       My career began in finance at Danske Bank, but I quickly realized my calling was in creative,
@@ -26,8 +26,8 @@
       design roles. Rather than limiting myself, I embraced the opportunity to return to my
       technical roots. I participated in the <strong>Woman Go Tech acceleration program</strong> for
       front-end development and am now pursuing front-end development education at Turing College,
-      mastering <strong>Python, Vue, TypeScript, SQL, and modern testing frameworks</strong>, while
-      leveraging <strong>AI tools</strong> to accelerate my learning and development process.
+      mastering <strong>Python, Vue, TypeScript, SQL, Git, and modern testing frameworks</strong>,
+      while leveraging <strong>AI tools</strong> to accelerate my learning and development process.
     </p>
     <p>
       What drives me is the
