@@ -30,7 +30,6 @@ const socialLinks = [
   },
 ]
 
-// Copy email function
 const copyEmail = async () => {
   try {
     await navigator.clipboard.writeText('evelina.satkauske@gmail.com')
@@ -43,11 +42,9 @@ const copyEmail = async () => {
   }
 }
 
-// Download CV function
 const downloadCV = () => {
-  // Replace with your actual CV file path
   const link = document.createElement('a')
-  link.href = '/cv-evelina-satkauske.pdf' // Update this path
+  link.href = '/resume.pdf'
   link.download = 'Evelina_Satkauske_CV.pdf'
   document.body.appendChild(link)
   link.click()
@@ -92,7 +89,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="h-full flex flex-col justify-between bg-white dark:bg-slate-800">
+  <div class="h-full flex flex-col justify-between bg-white">
     <!-- Main Content Container -->
     <div class="flex flex-col h-full">
       <!-- 1. Profile Section: Photo + Info Side by Side -->
@@ -111,17 +108,13 @@ onUnmounted(() => {
 
           <!-- Name, Position, Email - Vertical stack next to photo -->
           <div class="flex flex-col justify-center space-y-1">
-            <h1 class="text-2xl lg:text-4xl font-bold text-slate-900 dark:text-slate-100">
-              Evelina Satkauskė
-            </h1>
+            <h1 class="text-2xl lg:text-4xl font-bold text-slate-900">Evelina Satkauskė</h1>
 
-            <p class="text-lg text-gray-600 dark:text-slate-300">
-              Front End Developer | UX Designer
-            </p>
+            <p class="text-lg text-gray-600">Front End Developer | UX Designer</p>
 
             <button
               @click="copyEmail"
-              class="group flex items-center space-x-2 text-gray-600 dark:text-slate-400 hover:text-gray-900 dark:hover:text-slate-100 transition-colors cursor-pointer"
+              class="group flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors cursor-pointer"
             >
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
@@ -132,24 +125,21 @@ onUnmounted(() => {
                 />
               </svg>
               <span class="text-sm font-medium">evelina.satkauske@gmail.com</span>
-              <span v-if="emailCopied" class="text-xs text-green-600 dark:text-green-400 ml-2">
-                Copied!
-              </span>
+              <span v-if="emailCopied" class="text-xs text-green-600 ml-2"> Copied! </span>
             </button>
           </div>
         </div>
       </div>
 
-      <!-- 2. Navigation Menu Items - Centered with proper padding -->
       <nav class="flex-1 flex flex-col justify-start pl-4 py-8">
         <div class="space-y-6">
           <a
             v-for="item in navigationItems"
             :key="item.href"
             :href="item.href"
-            class="text-gray-500 dark:text-slate-400 hover:text-gray-900 dark:hover:text-slate-100 transition-colors relative group flex items-center"
+            class="text-gray-500 hover:text-gray-900 transition-colors relative group flex items-center"
             :class="{
-              'text-gray-900 dark:text-slate-100 font-semibold': activeSection === item.id,
+              'text-gray-900 font-semibold': activeSection === item.id,
             }"
             @click="(e) => handleNavClick(item.id, e)"
           >
@@ -157,9 +147,9 @@ onUnmounted(() => {
               class="nav-indicator mr-4 h-[2px] transition-all motion-reduce:transition-none"
               :class="[
                 activeSection === item.id
-                  ? 'w-16 bg-gray-900 dark:bg-slate-100'
-                  : 'w-8 bg-gray-300 dark:bg-slate-500 group-hover:w-16 group-hover:bg-gray-900 dark:group-hover:bg-slate-100',
-                'group-focus-visible:w-16 group-focus-visible:bg-gray-900 dark:group-focus-visible:bg-slate-100',
+                  ? 'w-16 bg-gray-900'
+                  : 'w-8 bg-gray-300 group-hover:w-16 group-hover:bg-gray-900',
+                'group-focus-visible:w-16 group-focus-visible:bg-gray-900',
               ]"
             ></span>
             <span class="text-xs uppercase tracking-widest relative z-10">{{ item.name }}</span>
@@ -174,7 +164,7 @@ onUnmounted(() => {
         <!-- Resume Button - Black -->
         <button
           @click="downloadCV"
-          class="inline-flex items-center px-4 py-2 bg-black dark:bg-white text-white dark:text-black rounded-lg hover:bg-gray-800 hover:cursor-pointer dark:hover:bg-gray-200 transition-all duration-300 font-medium text-sm"
+          class="inline-flex items-center px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 hover:cursor-pointer transition-all duration-300 font-medium text-sm"
           title="Download Resume"
         >
           <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -186,9 +176,7 @@ onUnmounted(() => {
             />
           </svg>
           Resume
-          <span v-if="cvDownloaded" class="text-xs text-green-400 dark:text-green-600 ml-2">
-            ✓
-          </span>
+          <span v-if="cvDownloaded" class="text-xs text-green-400 ml-2"> ✓ </span>
         </button>
 
         <!-- Social Links -->
@@ -199,7 +187,7 @@ onUnmounted(() => {
             :href="link.href"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-gray-500 dark:text-slate-400 hover:text-gray-700 dark:hover:text-slate-200 transition-all duration-300 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700"
+            class="text-gray-500 hover:text-gray-700 transition-all duration-300 p-2 rounded-lg hover:bg-gray-100"
             :title="link.name"
             v-html="link.icon"
           ></a>
@@ -210,17 +198,14 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
-/* Smooth scroll behavior */
 html {
   scroll-behavior: smooth;
 }
 
-/* Section transitions */
 section {
   transition: opacity 0.3s ease-in-out;
 }
 
-/* Optional: Add a subtle hover effect to section headings */
 h2 {
   position: relative;
   display: inline-block;

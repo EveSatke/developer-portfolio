@@ -1,32 +1,68 @@
 @import './base.css';
 @import "tailwindcss";
 
+/* Define base colors */
 @theme {
-  /* Main Theme - Vibrant Purple/Blue Gradient */
-  --color-primary: oklch(0.55 0.27 296);    /* Grape - Rich purple */
-  --color-light-purple: oklch(0.70 0.25 296);  /* Grape 700 - Bright purple */
-  --color-dark-purple: oklch(0.45 0.27 296);   /* Chrysler blue - Deep purple */
-  --color-accent: oklch(0.75 0.20 296);     /* Grape 800 - Light purple */
-  --color-deep: oklch(0.40 0.27 296);       /* Zaffre - Deepest purple */
-  --color-neon: oklch(0.55 0.25 260);       /* Neon blue - Bright accent */
-  --color-sky: oklch(0.65 0.20 240);        /* Chefchaouen Blue - Light accent */
+  --color-slate-50: oklch(1 0 0);
+  --color-slate-100: oklch(0.98 0.005 0);
+  --color-slate-200: oklch(0.95 0.01 0);
+  --color-slate-300: oklch(0.90 0.015 0);
+  --color-slate-400: oklch(0.80 0.02 0);
+  --color-slate-500: oklch(0.70 0.02 0);
+  --color-slate-600: oklch(0.60 0.02 0);
+  --color-slate-700: oklch(0.50 0.02 0);
+  --color-slate-800: oklch(0.30 0.02 0);
+  --color-slate-900: oklch(0.20 0.02 0);
+  --color-slate-950: oklch(0.10 0.02 0);
+}
 
-  /* Text Colors */
-  --color-text-primary: var(--color-deep);
-  --color-text-secondary: var(--color-dark-purple);
-  --color-text-light: var(--color-light-purple);
+/* Smooth theme transitions */
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
 
-  /* Background Colors */
-  --color-bg-primary: oklch(1 0 0);         /* White */
-  --color-bg-secondary: var(--color-accent);
-  --color-bg-gradient: linear-gradient(45deg, var(--color-primary), var(--color-neon));
+/* Prevent transitions on page load */
+* {
+  transition-delay: 0s;
+}
 
-  /* Effects */
-  --shadow-sm: 0 2px 4px oklch(0.55 0.27 296 / 0.2);
-  --shadow-md: 0 8px 20px oklch(0.55 0.27 296 / 0.3);
-  --shadow-lg: 0 12px 25px oklch(0.55 0.27 296 / 0.4);
-  --shadow-lg-green: 0 12px 25px oklch(0.55 0.27 150 / 0.35); /* Green shadow */
+/* Add delay after page load */
+.theme-loaded * {
+  transition-delay: 0.1s;
+}
 
-  /* Avatar Colors */
-  --color-avatar-purple: oklch(0.90 0.15 296); /* Very light purple for avatars */
+/* Custom scrollbar for dark mode */
+.dark ::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: oklch(0.15 0.02 280);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: oklch(0.35 0.05 280);
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.40 0.06 280);
+}
+
+/* Light mode scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: oklch(0.95 0 0);
+}
+
+::-webkit-scrollbar-thumb {
+  background: oklch(0.80 0 0);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.70 0 0);
 }

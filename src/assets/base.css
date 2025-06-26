@@ -5,8 +5,15 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
+  height: 100%;
+}
+
 body {
   min-height: 100vh;
+  height: 100%;
   line-height: 1.6;
   font-family:
     Inter,
@@ -23,15 +30,15 @@ body {
     sans-serif;
   text-rendering: optimizeLegibility;
   @apply antialiased;
+  margin: 0;
+  padding: 0;
 }
 
-/* Add smooth scroll behavior */
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 2rem; /* Adjusts scroll position to account for fixed header */
+#app {
+  min-height: 100vh;
+  height: 100%;
 }
 
-/* Optional: Add a subtle transition for section changes */
 section {
   transition: opacity 0.3s ease-in-out;
 }

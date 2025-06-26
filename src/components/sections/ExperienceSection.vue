@@ -31,7 +31,7 @@ const experiences: Experience[] = [
     ],
   },
   {
-    date: '2019 — 2019',
+    date: '2019 Feb — 2019 Aug',
     title: 'IT Software Engineer, student',
     company: 'Danske Bank',
     companyUrl: 'https://danskebank.com/',

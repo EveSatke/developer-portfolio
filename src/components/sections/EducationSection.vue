@@ -36,7 +36,6 @@ const education: Education[] = [
     institutionUrl: 'https://www.mruni.eu/en/',
     logoUrl: '/mru_logo.png',
   },
-  // Add more education entries as needed
 ]
 </script>
 

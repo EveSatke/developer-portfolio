@@ -21,38 +21,37 @@ const props = defineProps<Props>()
 
 <template>
   <div
-    class="relative bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden transition-all duration-200 hover:bg-indigo-50 dark:hover:bg-indigo-900 hover:border-indigo-400 hover:scale-[1.01]"
+    class="relative bg-white border border-slate-200 rounded-xl overflow-hidden transition-all duration-200 hover:bg-indigo-50 hover:border-indigo-400 hover:scale-[1.01] hover:shadow-lg"
   >
-    <div
-      class="w-full aspect-[4/3] bg-gray-100 dark:bg-slate-700 flex items-center justify-center overflow-hidden rounded-t-xl"
-    >
+    <div class="w-full aspect-[4/3] bg-gray-100 flex items-center justify-center overflow-hidden">
       <img
         :src="props.imageUrl"
         :alt="props.title"
-        class="w-full h-full object-cover rounded-t-xl"
+        class="w-full h-full object-cover"
         loading="lazy"
       />
     </div>
 
     <!-- Project Content -->
     <div class="p-6">
-      <div class="flex items-center justify-between mb-2">
-        <h3 class="font-semibold text-lg text-slate-900 dark:text-slate-200">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="font-semibold text-lg text-slate-900">
           {{ props.title }}
         </h3>
       </div>
 
-      <p class="text-sm text-slate-700 dark:text-slate-300 mb-4">
+      <p class="text-sm text-slate-700 mb-4 leading-relaxed">
         {{ props.description }}
       </p>
 
+      <!-- Action Buttons -->
       <div class="flex items-center gap-2 mb-4">
         <a
           v-if="props.projectUrl"
           :href="props.projectUrl"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-medium bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors"
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors shadow-sm"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -75,7 +74,7 @@ const props = defineProps<Props>()
           :href="props.githubUrl"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-medium bg-slate-700 text-white rounded-md hover:bg-slate-800 transition-colors"
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium bg-slate-700 text-white rounded-lg hover:bg-slate-800 transition-colors shadow-sm"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -91,12 +90,18 @@ const props = defineProps<Props>()
         </a>
       </div>
 
-      <div v-if="props.skills.length" class="mb-2">
-        <div class="font-semibold text-xs text-slate-500 dark:text-slate-400 mb-1">
+      <!-- Skills Section -->
+      <div v-if="props.skills.length">
+        <div class="text-xs font-medium text-slate-500 mb-2 uppercase tracking-wide">
           Technologies Used
         </div>
         <div class="flex flex-wrap gap-2">
-          <SkillBadge v-for="skill in props.skills" :key="skill.name" v-bind="skill" />
+          <SkillBadge
+            v-for="skill in props.skills"
+            :key="skill.name"
+            v-bind="skill"
+            variant="compact"
+          />
         </div>
       </div>
     </div>

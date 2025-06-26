@@ -1,6 +1,6 @@
 <script setup lang="ts"></script>
 <template>
-  <div class="space-y-5 text-gray-700 dark:text-gray-300 leading-relaxed">
+  <div class="space-y-5 text-gray-700 leading-relaxed">
     <p>
       I'm a <strong>former UX/UI designer turned web developer</strong>, currently learning
       front-end development at <strong>Turing College</strong>. My diverse experience across
