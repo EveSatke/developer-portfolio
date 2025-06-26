@@ -1,39 +1,56 @@
-# developer-portfolio
+# Evelina Satkauskė - Developer Portfolio
 
-This template should help get you started developing with Vue 3 in Vite.
+A modern, responsive developer portfolio built with Vue 3, TypeScript, and Tailwind CSS v4.
 
-## Recommended IDE Setup
+## 🚀 Features
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- **Modern Tech Stack**: Vue 3 + TypeScript + Tailwind CSS v4
+- **Responsive Design**: Optimized for desktop, tablet, and mobile devices
+- **Clean UI**: Professional and minimalist design
+- **Project Showcase**: Interactive project cards with live demos
+- **Contact Integration**: Direct email copying and social media links
 
-## Type Support for `.vue` Imports in TS
+## 🛠️ Tech Stack
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+- **Frontend**: Vue 3 with Composition API
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **Build Tool**: Vite
+- **Router**: Vue Router
 
-## Customize configuration
+## 🚀 Getting Started
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+### Prerequisites
 
-## Project Setup
+- Node.js (v16 or higher)
+- npm or yarn
 
-```sh
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/EveSatke/developer-portfolio.git
+cd developer-portfolio
+```
+
+2. Install dependencies:
+
+```bash
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+3. Start the development server:
 
-```sh
+```bash
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+## 🔗 Links
 
-```sh
-npm run build
-```
+- **GitHub**: [https://github.com/EveSatke](https://github.com/EveSatke)
+- **LinkedIn**: [https://www.linkedin.com/in/evelina-satkauske/](https://www.linkedin.com/in/evelina-satkauske/)
 
-### Lint with [ESLint](https://eslint.org/)
+---
 
-```sh
-npm run lint
-```
+Built with ❤️ by Evelina Satkauskė
