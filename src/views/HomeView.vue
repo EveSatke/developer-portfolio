@@ -10,9 +10,9 @@ const experienceRef = ref(null)
 const educationRef = ref(null)
 const projectsRef = ref(null)
 
-const throttle = (func: Function, limit: number) => {
+const throttle = (func: (...args: unknown[]) => void, limit: number) => {
   let inThrottle: boolean
-  return function (...args: any[]) {
+  return function (...args: unknown[]) {
     if (!inThrottle) {
       func(...args)
       inThrottle = true
@@ -43,7 +43,7 @@ const handleScroll = throttle(() => {
       }
     }
   })
-}, 100) // Throttle to 100ms
+}, 100)
 
 onMounted(() => {
   nextTick(() => {

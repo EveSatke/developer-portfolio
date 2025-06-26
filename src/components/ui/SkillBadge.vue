@@ -6,10 +6,7 @@ interface Props {
   variant?: 'default' | 'compact' | 'outline'
 }
 
-const props = withDefaults(defineProps<Props>(), {
-  category: 'other',
-  variant: 'default',
-})
+const { category = 'other', variant = 'default' } = defineProps<Props>()
 
 const getCategoryColor = (category: 'frontend' | 'backend' | 'tools' | 'design' | 'other') => {
   const colors = {

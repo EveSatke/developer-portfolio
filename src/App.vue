@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
-import Sidebar from '@/components/Sidebar.vue'
+import SidebarNav from './components/SidebarNav.vue'
 </script>
 
 <template>
@@ -11,7 +11,7 @@ import Sidebar from '@/components/Sidebar.vue'
       <div
         class="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-[48%] lg:flex-col lg:justify-between lg:py-24"
       >
-        <Sidebar />
+        <SidebarNav />
       </div>
 
       <main class="pt-24 lg:w-[52%] lg:py-24">
