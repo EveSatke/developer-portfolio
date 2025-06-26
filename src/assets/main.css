@@ -1,7 +1,6 @@
 @import './base.css';
 @import "tailwindcss";
 
-/* Define base colors */
 @theme {
   --color-slate-50: oklch(1 0 0);
   --color-slate-100: oklch(0.98 0.005 0);
@@ -16,40 +15,19 @@
   --color-slate-950: oklch(0.10 0.02 0);
 }
 
-/* Smooth theme transitions */
 * {
   transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
-/* Prevent transitions on page load */
 * {
   transition-delay: 0s;
 }
 
-/* Add delay after page load */
 .theme-loaded * {
   transition-delay: 0.1s;
 }
 
-/* Custom scrollbar for dark mode */
-.dark ::-webkit-scrollbar {
-  width: 8px;
-}
 
-.dark ::-webkit-scrollbar-track {
-  background: oklch(0.15 0.02 280);
-}
-
-.dark ::-webkit-scrollbar-thumb {
-  background: oklch(0.35 0.05 280);
-  border-radius: 4px;
-}
-
-.dark ::-webkit-scrollbar-thumb:hover {
-  background: oklch(0.40 0.06 280);
-}
-
-/* Light mode scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
