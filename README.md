@@ -53,4 +53,4 @@ npm run dev
 
 ---
 
-Built with ❤️ by Evelina Satkauskė
+Built with ❤️ by Evelina Satkauskė.
