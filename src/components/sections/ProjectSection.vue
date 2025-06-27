@@ -34,8 +34,8 @@ const projects: Project[] = [
     title: 'Typo Game',
     description: 'A typing speed test game with word generation and accuracy tracking.',
     imageUrl: './projects/typo.png',
-    projectUrl: 'https://evesatke.github.io/typo-game/',
-    githubUrl: 'https://github.com/evesatke/typo-game',
+    projectUrl: 'https://evesatke.github.io/typo/',
+    githubUrl: 'https://github.com/EveSatke/typo',
     skills: [
       { name: 'Vanilla JavaScript', category: 'frontend' },
       { name: 'HTML5', category: 'frontend' },
@@ -47,8 +47,8 @@ const projects: Project[] = [
     title: 'E-Shop',
     description: 'An e-commerce website with product catalog and shopping cart functionality.',
     imageUrl: './projects/e-shop.png',
-    projectUrl: 'https://evesatke.github.io/e-shop/',
-    githubUrl: 'https://github.com/evesatke/e-shop',
+    projectUrl: 'https://evesatke.github.io/telia_e-shop/',
+    githubUrl: 'https://github.com/EveSatke/telia_e-shop',
     skills: [
       { name: 'React', category: 'frontend' },
       { name: 'Next.js', category: 'frontend' },

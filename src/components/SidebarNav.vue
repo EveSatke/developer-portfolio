@@ -44,7 +44,7 @@ const copyEmail = async () => {
 
 const downloadCV = () => {
   const link = document.createElement('a')
-  link.href = '/resume.pdf'
+  link.href = 'resume.pdf'
   link.download = 'Evelina_Satkauske_CV.pdf'
   document.body.appendChild(link)
   link.click()
@@ -56,12 +56,10 @@ const downloadCV = () => {
   }, 2000)
 }
 
-// Listen for section changes from scroll
 const handleSectionChange = (event: CustomEvent) => {
   activeSection.value = event.detail.id
 }
 
-// Add smooth scroll handler
 const handleNavClick = (id: string, event: Event) => {
   event.preventDefault()
   activeSection.value = id
@@ -90,13 +88,9 @@ onUnmounted(() => {
 
 <template>
   <div class="h-full flex flex-col justify-between bg-white">
-    <!-- Main Content Container -->
     <div class="flex flex-col h-full">
-      <!-- 1. Profile Section: Photo + Info Side by Side -->
       <div class="mb-8">
-        <!-- Profile Photo and Info Layout -->
         <div class="flex items-start space-x-4">
-          <!-- Profile Photo -->
           <div ref="profileRef" class="relative group flex-shrink-0">
             <div class="relative w-[100px] h-[100px] rounded-full overflow-hidden">
               <img src="/profile.png" alt="Evelina Satkauskė" class="w-full h-full object-cover" />
@@ -106,7 +100,6 @@ onUnmounted(() => {
             </div>
           </div>
 
-          <!-- Name, Position, Email - Vertical stack next to photo -->
           <div class="flex flex-col justify-center space-y-1">
             <h1 class="text-2xl lg:text-4xl font-bold text-slate-900">Evelina Satkauskė</h1>
 
@@ -158,10 +151,8 @@ onUnmounted(() => {
       </nav>
     </div>
 
-    <!-- 3. Resume Button and Social Links - Bottom with padding -->
     <div class="pl-4 pb-4">
       <div class="flex items-center space-x-4">
-        <!-- Resume Button - Black -->
         <button
           @click="downloadCV"
           class="inline-flex items-center px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 hover:cursor-pointer transition-all duration-300 font-medium text-sm"
@@ -179,7 +170,6 @@ onUnmounted(() => {
           <span v-if="cvDownloaded" class="text-xs text-green-400 ml-2"> ✓ </span>
         </button>
 
-        <!-- Social Links -->
         <div class="flex items-center space-x-2">
           <a
             v-for="link in socialLinks"
