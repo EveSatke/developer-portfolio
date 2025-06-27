@@ -15,7 +15,7 @@ const education: Education[] = [
     title: 'Web Development',
     institution: 'Turing College',
     institutionUrl: 'https://www.turingcollege.com/',
-    logoUrl: '/Turing_College_logo.jpeg',
+    logoUrl: './Turing_College_logo.jpeg',
   },
   {
     date: '2020',
@@ -27,14 +27,14 @@ const education: Education[] = [
     title: 'Web Design',
     institution: 'Code Academy',
     institutionUrl: 'https://codeacademy.lt/',
-    logoUrl: '/codeacademy-black.svg',
+    logoUrl: './codeacademy-black.svg',
   },
   {
     date: '2010 — 2014',
     title: `Bachelor's in Economics of Finance`,
     institution: 'Mykolo Romerio University',
     institutionUrl: 'https://www.mruni.eu/en/',
-    logoUrl: '/mru_logo.png',
+    logoUrl: './mru_logo.png',
   },
 ]
 </script>

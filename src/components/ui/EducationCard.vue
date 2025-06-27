@@ -38,11 +38,11 @@ const hasInstitutionUrl = computed(
     class="relative bg-white border border-slate-200 rounded-xl p-4 transition-all duration-200 hover:bg-violet-50 hover:border-violet-400 hover:scale-[1.01] hover:shadow-lg"
   >
     <div class="flex items-center gap-3">
-      <!-- Avatar/Logo on the left -->
       <div
         class="w-8 h-8 flex items-center justify-center border border-slate-100 flex-shrink-0 overflow-hidden"
-        :class="!hasLogo ? 'rounded-full' : 'rounded-md'"
-        :style="!hasLogo ? { background: 'var(--color-avatar-purple)' } : {}"
+        :class="[
+          !hasLogo ? 'rounded-full bg-gradient-to-br from-violet-500 to-violet-600' : 'rounded-md',
+        ]"
       >
         <template v-if="hasLogo">
           <img
@@ -52,13 +52,12 @@ const hasInstitutionUrl = computed(
           />
         </template>
         <template v-else>
-          <span class="text-xs font-bold text-slate-700 select-none">
+          <span class="text-xs font-bold text-white select-none">
             {{ getInitials(props.institution) }}
           </span>
         </template>
       </div>
 
-      <!-- Card content on the right -->
       <div class="flex-1 min-w-0">
         <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-2">
           <span class="text-xs text-slate-500 font-mono bg-slate-100 px-2 py-1 rounded-md w-fit">{{
@@ -72,7 +71,6 @@ const hasInstitutionUrl = computed(
               class="text-violet-600 hover:text-violet-800 font-semibold text-sm flex items-center group"
             >
               {{ props.institution }}
-              <!-- External link icon -->
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="inline-block h-4 w-4 ml-1 align-text-bottom"
@@ -112,7 +110,6 @@ const hasInstitutionUrl = computed(
           {{ props.institution }}
         </div>
 
-        <!-- Skills Section -->
         <div v-if="props.skills && props.skills.length" class="mt-2">
           <div class="text-xs font-medium text-slate-500 mb-2 uppercase tracking-wide">
             Skills & Focus Areas

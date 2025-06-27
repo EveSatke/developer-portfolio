@@ -19,8 +19,8 @@ type Project = {
 const projects: Project[] = [
   {
     title: 'Habits App',
-    description: 'Track your daily habits, monitor progress, and build consistent routines.',
-    imageUrl: '/projects/habits_app.png',
+    description: 'A web application for tracking daily habits and building positive routines.',
+    imageUrl: './projects/habits_app.png',
     projectUrl: 'https://evesatke.github.io/habits-app/',
     githubUrl: 'https://github.com/evesatke/habits-app',
     skills: [
@@ -31,12 +31,11 @@ const projects: Project[] = [
     ],
   },
   {
-    title: 'Typo',
-    description:
-      'A modern, web-based typing speed test application that helps users measure and improve their typing skills.',
-    imageUrl: '/projects/typo.png',
-    projectUrl: 'https://evesatke.github.io/typo/',
-    githubUrl: 'https://github.com/EveSatke/typo',
+    title: 'Typo Game',
+    description: 'A typing speed test game with word generation and accuracy tracking.',
+    imageUrl: './projects/typo.png',
+    projectUrl: 'https://evesatke.github.io/typo-game/',
+    githubUrl: 'https://github.com/evesatke/typo-game',
     skills: [
       { name: 'Vanilla JavaScript', category: 'frontend' },
       { name: 'HTML5', category: 'frontend' },
@@ -45,12 +44,11 @@ const projects: Project[] = [
     ],
   },
   {
-    title: 'Telia e-shop',
-    description:
-      'This project is part of the Women Go Tech program, specifically developed as a portfolio project for Telia company.',
-    imageUrl: '/projects/e-shop.png',
-    projectUrl: 'https://evesatke.github.io/telia_e-shop/',
-    githubUrl: 'https://github.com/EveSatke/telia_e-shop',
+    title: 'E-Shop',
+    description: 'An e-commerce website with product catalog and shopping cart functionality.',
+    imageUrl: './projects/e-shop.png',
+    projectUrl: 'https://evesatke.github.io/e-shop/',
+    githubUrl: 'https://github.com/evesatke/e-shop',
     skills: [
       { name: 'React', category: 'frontend' },
       { name: 'Next.js', category: 'frontend' },
@@ -59,12 +57,11 @@ const projects: Project[] = [
     ],
   },
   {
-    title: 'Tic-tac-toe game',
-    description:
-      'Vanilla JavaScript Tic-tac-toe with modular architecture, responsive design, and game state management.',
-    imageUrl: '/projects/tic-tac-toe.png',
+    title: 'Tic Tac Toe',
+    description: 'A classic tic-tac-toe game with player turn tracking and win detection.',
+    imageUrl: './projects/tic-tac-toe.png',
     projectUrl: 'https://evesatke.github.io/tic-tac-toe/',
-    githubUrl: 'https://github.com/EveSatke/tic-tac-toe',
+    githubUrl: 'https://github.com/evesatke/tic-tac-toe',
     skills: [
       { name: 'Vanilla JavaScript', category: 'frontend' },
       { name: 'HTML5', category: 'frontend' },
