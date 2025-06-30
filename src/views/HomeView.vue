@@ -30,6 +30,7 @@ const handleScroll = throttle(() => {
   ]
 
   const scrollPosition = window.scrollY + 100
+  let activeSectionFound = false
 
   sections.forEach(({ id, ref }) => {
     if (ref.value) {
@@ -38,12 +39,13 @@ const handleScroll = throttle(() => {
       const offsetTop = rect.top + window.scrollY
       const offsetBottom = offsetTop + rect.height
 
-      if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
+      if (scrollPosition >= offsetTop && scrollPosition < offsetBottom && !activeSectionFound) {
         window.dispatchEvent(new CustomEvent('sectionChange', { detail: { id } }))
+        activeSectionFound = true
       }
     }
   })
-}, 100)
+}, 50)
 
 onMounted(() => {
   nextTick(() => {

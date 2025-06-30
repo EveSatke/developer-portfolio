@@ -5,6 +5,7 @@ const profileRef = ref<HTMLElement | null>(null)
 const activeSection = ref('about')
 const emailCopied = ref(false)
 const cvDownloaded = ref(false)
+const isManualNavigation = ref(false)
 
 const navigationItems = [
   { name: 'About', href: '#about', id: 'about' },
@@ -56,13 +57,10 @@ const downloadCV = () => {
   }, 2000)
 }
 
-const handleSectionChange = (event: CustomEvent) => {
-  activeSection.value = event.detail.id
-}
-
 const handleNavClick = (id: string, event: Event) => {
   event.preventDefault()
   activeSection.value = id
+  isManualNavigation.value = true
 
   const element = document.getElementById(id)
   if (element) {
@@ -74,6 +72,18 @@ const handleNavClick = (id: string, event: Event) => {
       top: offsetPosition,
       behavior: 'smooth',
     })
+  }
+
+  // Reset the flag after a short delay to allow scroll events to resume
+  setTimeout(() => {
+    isManualNavigation.value = false
+  }, 1000)
+}
+
+const handleSectionChange = (event: CustomEvent) => {
+  // Only update active section if it's not a manual navigation
+  if (!isManualNavigation.value) {
+    activeSection.value = event.detail.id
   }
 }
 
